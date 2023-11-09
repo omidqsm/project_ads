@@ -11,6 +11,8 @@ django-rest-knox = "*"
 drf-spectacular = "*"
 psycopg = "*"
 psycopg-binary = "*"
+django-structlog = "*"
+colorama = "*"
 
 [dev-packages]
 setuptools = "*"

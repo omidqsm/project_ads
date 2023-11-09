@@ -1,13 +1,12 @@
-from django.urls import path, include
+from django.urls import path
 from djoser.views import UserViewSet
-from knox import views as knox_views
 
-from users.views import LoginView
+from users.views import LoginView, LogoutView
 
 urlpatterns = [
     # path('', include('djoser.urls')),
     path('me/', UserViewSet.as_view(actions={'get': 'me'}), name='user_me'),
     path('signup/', UserViewSet.as_view(actions={'post': 'create'}), name='signup'),
     path('login/', LoginView.as_view(), name='knox_login'),
-    path('logout/', knox_views.LogoutView.as_view(), name='knox_logout')
+    path('logout/', LogoutView.as_view(), name='knox_logout')
 ]

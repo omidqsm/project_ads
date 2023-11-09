@@ -3,7 +3,7 @@ from djoser.serializers import UserSerializer
 from drf_spectacular.extensions import OpenApiAuthenticationExtension
 from drf_spectacular.utils import extend_schema
 from knox.auth import TokenAuthentication
-from knox.views import LoginView as KnoxLoginView
+from knox.views import LoginView as KnoxLoginView, LogoutView as KnoxLogoutView
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.permissions import AllowAny
 from rest_framework.request import Request
@@ -35,3 +35,8 @@ class LoginView(KnoxLoginView):
         user = serializer.validated_data['user']
         login(request, user)
         return super().post(request, format)
+
+
+@extend_schema(request=None, responses={204: None})
+class LogoutView(KnoxLogoutView):
+    pass
