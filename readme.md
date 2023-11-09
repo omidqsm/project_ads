@@ -16,5 +16,11 @@ token to login and authorize in the system
 
 that's it!
 
+## How to run tests?
+- start an interactive terminal in the running app container
+- run following commands
+  - ```pipenv shell```
+  - ```python manage.py test```
+
 ## notes
 - this project is written in django rest framework
