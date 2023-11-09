@@ -6,7 +6,7 @@
 ## steps
 - connect to your VPN
 - open a terminal window in the project folder
-- run ```docker compose up```
+- run ```docker compose up --build```
 - open **localhost:8000/docs/** in your browser
 - use **"/auth/signup/"** to register your credentials
 - use **"/auth/login/"** to retrieve an auth-token from the server
