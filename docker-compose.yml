@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  app:
+    container_name: app
+    build: .
+    image: project_ads
+    ports:
+      - '8000:8000'
+    command: ["/bin/sh", "/code/entrypoint.sh"]
+    depends_on:
+      - pgdb
+
+  pgdb:
+    container_name: pgdb
+    image: postgres:latest
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+     POSTGRES_USER: my_username
+     POSTGRES_PASSWORD: my_password
+     POSTGRES_DB: project_ads
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
